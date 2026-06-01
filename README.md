@@ -75,6 +75,35 @@ nc: 3
 names: ['hand-raising', 'reading', 'writing']
 ```
 
+## Data Split
+
+The released experiments follow the SCB-Dataset2 YOLO-format split:
+
+| Split | Images | Instances |
+|---|---:|---:|
+| Train | 3,418 | 14,515 |
+| Val | 848 | 3,992 |
+
+Expected directory layout:
+
+```text
+scb2/
+  images/
+    train/
+    val/
+  labels/
+    train/
+    val/
+```
+
+Class order must remain:
+
+```text
+0 hand-raising
+1 reading
+2 writing
+```
+
 ## Train
 
 ```bash
@@ -100,6 +129,22 @@ python scripts/val.py --data configs/datasets/scb2.yaml --weights weights/BAC-SS
 ```bash
 python scripts/predict.py --weights weights/BAC-SSM-YOLO_scb2_best.pt --source path/to/images
 ```
+
+## FPS Test
+
+Forward FPS can be measured with:
+
+```bash
+python scripts/fps.py --weights weights/BAC-SSM-YOLO_scb2_best.pt --imgsz 640 --batch 1 --device cuda:0
+```
+
+For FP16 testing:
+
+```bash
+python scripts/fps.py --weights weights/BAC-SSM-YOLO_scb2_best.pt --imgsz 640 --batch 1 --device cuda:0 --half
+```
+
+The script uses warmup iterations and reports both latency and FPS.
 
 ## Reported SCB-Dataset2 Result
 
