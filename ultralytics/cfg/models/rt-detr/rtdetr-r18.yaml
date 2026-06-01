@@ -1,0 +1,45 @@
+# Ultralytics AGPL-3.0 License - https://ultralytics.com/license
+
+# RT-DETR-R18 hybrid object detection model with a ResNet-18 style backbone.
+# Based on the local Ultralytics RT-DETR-ResNet YAML family, replacing the
+# bottleneck ResNet-50 backbone with basic-block ResNet-18 stages.
+
+# Parameters
+nc: 80 # number of classes
+scales:
+  # [depth, width, max_channels]
+  l: [1.00, 1.00, 1024]
+
+backbone:
+  # [from, repeats, module, args]
+  - [-1, 1, ResNetLayer, [3, 64, 1, True, 1]] # 0-P2/4 stem
+  - [-1, 1, ResNetLayer, [64, 64, 1, False, 2, 1]] # 1-P2/4, ResNet18 layer1
+  - [-1, 1, ResNetLayer, [64, 128, 2, False, 2, 1]] # 2-P3/8, ResNet18 layer2
+  - [-1, 1, ResNetLayer, [128, 256, 2, False, 2, 1]] # 3-P4/16, ResNet18 layer3
+  - [-1, 1, ResNetLayer, [256, 512, 2, False, 2, 1]] # 4-P5/32, ResNet18 layer4
+
+head:
+  - [-1, 1, Conv, [256, 1, 1, None, 1, 1, False]] # 5
+  - [-1, 1, AIFI, [1024, 8]]
+  - [-1, 1, Conv, [256, 1, 1]] # 7
+
+  - [-1, 1, nn.Upsample, [None, 2, "nearest"]]
+  - [3, 1, Conv, [256, 1, 1, None, 1, 1, False]] # 9
+  - [[-2, -1], 1, Concat, [1]]
+  - [-1, 3, RepC3, [256]] # 11
+  - [-1, 1, Conv, [256, 1, 1]] # 12
+
+  - [-1, 1, nn.Upsample, [None, 2, "nearest"]]
+  - [2, 1, Conv, [256, 1, 1, None, 1, 1, False]] # 14
+  - [[-2, -1], 1, Concat, [1]]
+  - [-1, 3, RepC3, [256]] # X3 (16)
+
+  - [-1, 1, Conv, [256, 3, 2]] # 17
+  - [[-1, 12], 1, Concat, [1]]
+  - [-1, 3, RepC3, [256]] # F4 (19)
+
+  - [-1, 1, Conv, [256, 3, 2]] # 20
+  - [[-1, 7], 1, Concat, [1]]
+  - [-1, 3, RepC3, [256]] # F5 (22)
+
+  - [[16, 19, 22], 1, RTDETRDecoder, [nc]] # RTDETRDecoder(P3, P4, P5)
