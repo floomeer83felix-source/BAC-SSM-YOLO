@@ -1,6 +1,6 @@
-runs/
-datasets/
-wandb/
+/runs/
+/datasets/
+/wandb/
 __pycache__/
 *.pyc
 *.pyo
@@ -13,4 +13,3 @@ __pycache__/
 .vscode/
 .DS_Store
 Thumbs.db
-

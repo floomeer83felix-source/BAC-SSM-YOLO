@@ -1,0 +1,5 @@
+train: 'D:/datasets/SCB/scb2/images/train'
+val: 'D:/datasets/SCB/scb2/images/val'
+
+nc: 3
+names: ['hand-raising', 'reading', 'writing']
