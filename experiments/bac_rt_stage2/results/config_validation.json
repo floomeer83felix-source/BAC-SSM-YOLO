@@ -1,0 +1,25 @@
+{
+  "BAC-SSM-YOLO-RT-NoP2": {
+    "config": "/mnt/e/yolo/yolo26/ultralytics/cfg/models/26/bac_rt_stage2/bac_ssm_yolo_rt_nop2.yaml",
+    "changed_layer_indices": [
+      2
+    ],
+    "num_DA_LC_blocks": 5,
+    "params_m": 5.407864,
+    "gflops_640": 15.597298400000001,
+    "forward_output_type": "tuple",
+    "validation": "PASS"
+  },
+  "BAC-SSM-YOLO-RT-NoEarly": {
+    "config": "/mnt/e/yolo/yolo26/ultralytics/cfg/models/26/bac_rt_stage2/bac_ssm_yolo_rt_noearly.yaml",
+    "changed_layer_indices": [
+      2,
+      4
+    ],
+    "num_DA_LC_blocks": 4,
+    "params_m": 5.401123,
+    "gflops_640": 15.564479200000001,
+    "forward_output_type": "tuple",
+    "validation": "PASS"
+  }
+}

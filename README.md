@@ -159,3 +159,7 @@ All FPS values in the manuscript were measured under a unified Mamba-SSM environ
 - The repository intentionally excludes training logs, paper drafts, datasets, cache files, and unrelated experiment variants.
 - The local `ultralytics` package contains the custom DA-LC-SS2D, BAC, and coordinate-aware recalibration modules used by the released model.
 - If you use the released checkpoint directly, make sure the class order in your dataset YAML matches the order above.
+
+## Supplementary Experiments
+
+- [Profiler-guided real-time optimization, stage 2](experiments/bac_rt_stage2/README.md): controlled NoP2/NoEarly configurations, seed-0 checkpoints, per-frame latency records, and Pareto analysis.

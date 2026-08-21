@@ -1,0 +1,122 @@
+{
+  "benchmark_name": "decoded-frame processing latency",
+  "model": "BAC-SSM-YOLO-RT-NoP2",
+  "weights": "/mnt/e/yolo/yolo26/runs/bac_rt_stage2/training/BAC-SSM-YOLO-RT-NoP2-seed0/weights/best.pt",
+  "weights_sha256": "f907f677a487689c74e57f825e66620a087bc6e4edd6c3f9fa2424f9c4fc25e7",
+  "device": "cuda:0",
+  "gpu": "NVIDIA GeForce RTX 3090",
+  "driver": "591.86",
+  "precision": "FP32",
+  "batch_size": 1,
+  "imgsz": 640,
+  "actual_input_shape": [
+    1,
+    3,
+    640,
+    640
+  ],
+  "rect": false,
+  "conf": 0.25,
+  "iou": 0.7,
+  "max_det": 300,
+  "agnostic_nms": false,
+  "model_end2end": true,
+  "nms_policy": "Ultralytics DetectionPredictor non_max_suppression with end2end model flag",
+  "legacy_dalc_compatibility": [],
+  "warmup_iterations": 50,
+  "num_images_found": 848,
+  "num_images": 848,
+  "preloaded_decoded_images": 848,
+  "preload_wall_ms_excluded": 87407.09968500232,
+  "image_order": "sorted recursive absolute paths, case-insensitive",
+  "image_list_sha256": "0656a65ebc5472cea0d35f30c2d70ade50d738fb8e45b28173e7bf539f7e1041",
+  "dataset_path": "/mnt/d/datasets/SCB/scb2/images/val",
+  "processing_total_ms": {
+    "mean": 17.805110826678707,
+    "std": 3.894719754836108,
+    "min": 14.699473998916801,
+    "p50": 16.352299999198294,
+    "p90": 21.949940500780947,
+    "p95": 28.67293619838165,
+    "p99": 32.32027101927087,
+    "max": 34.90628100189497
+  },
+  "stage_latency_ms": {
+    "preprocess_ms": {
+      "mean": 0.991125237048419,
+      "std": 0.1741645722720339,
+      "min": 0.7254820011439733,
+      "p50": 0.9436825002921978,
+      "p90": 1.1899787998117977,
+      "p95": 1.3663469471794087,
+      "p99": 1.6947371277637993,
+      "max": 1.8557170005806256
+    },
+    "host_to_device_ms": {
+      "mean": 0.2810122016656368,
+      "std": 0.05699533759293895,
+      "min": 0.21039199782535434,
+      "p50": 0.258577500062529,
+      "p90": 0.36245440132915974,
+      "p95": 0.39385990203300025,
+      "p99": 0.4799946911225561,
+      "max": 0.6274189981922973
+    },
+    "inference_ms": {
+      "mean": 16.00036567569901,
+      "std": 3.775910637965593,
+      "min": 13.090780001220992,
+      "p50": 14.542494500346947,
+      "p90": 19.896361899736807,
+      "p95": 26.704862997758028,
+      "p99": 29.930274148246095,
+      "max": 32.771572998171905
+    },
+    "postprocess_ms": {
+      "mean": 0.4087710517953108,
+      "std": 0.0945919373781396,
+      "min": 0.2631720017234329,
+      "p50": 0.37542600148299243,
+      "p90": 0.5010197004594376,
+      "p95": 0.6773230979888467,
+      "p99": 0.7457843398515251,
+      "max": 0.9686940029496327
+    },
+    "output_to_cpu_ms": {
+      "mean": 0.07181190682425743,
+      "std": 0.016156674133249393,
+      "min": 0.02839900116669014,
+      "p50": 0.0666819996695267,
+      "p90": 0.090652498693089,
+      "p95": 0.10893894905166235,
+      "p99": 0.12579060949065018,
+      "max": 0.18561700198915787
+    }
+  },
+  "processing_fps": 56.16364928780036,
+  "soft_deadline": {
+    "target_fps": 30.0,
+    "deadline_ms": 33.333333333333336,
+    "deadline_miss_count": 3,
+    "deadline_miss_rate_percent": 0.3537735849056604,
+    "mean_deadline_utilization_percent": 53.41533248003611
+  },
+  "peak_gpu_memory_allocated_mib": 294.31787109375,
+  "peak_gpu_memory_reserved_mib": 340.0,
+  "environment": {
+    "gpu_model": "NVIDIA GeForce RTX 3090",
+    "nvidia_driver": "591.86",
+    "pytorch_version": "2.3.1+cu118",
+    "cuda_runtime_version": "11.8",
+    "cudnn_version": 8700,
+    "python_version": "3.10.16",
+    "ultralytics_version": "8.4.38",
+    "git_commit": null,
+    "os": "Linux-5.15.167.4-microsoft-standard-WSL2-x86_64-with-glibc2.35",
+    "opencv_version": "4.11.0",
+    "tf32_allowed": false
+  },
+  "timing_definition": "Synchronized wall-clock from an already-decoded OpenCV BGR ndarray in CPU RAM through preprocessing, host-to-device transfer, FP32 normalization, model inference, end-to-end postprocessing, and final boxes copied to CPU. File I/O and image decode are excluded.",
+  "stage_note": "host_to_device_ms includes device-side dtype conversion and normalization, matching predictor order.",
+  "timestamp_utc": "2026-08-20T11:14:24.946953+00:00"
+}

@@ -1,0 +1,222 @@
+{
+  "reference_source": "/mnt/e/yolo/yolo26/runs/bac_rt/bac_rt_comparison.csv",
+  "rows": [
+    {
+      "model": "YOLO26s",
+      "seed": 0,
+      "params_m": 9.950186,
+      "gflops": 22.5073152,
+      "P": 0.6328948637554875,
+      "R": 0.6430714515148019,
+      "mAP50": 0.672086891997956,
+      "mAP50_95": 0.46706749455367935,
+      "mean_latency_ms": 9.619704830189043,
+      "latency_sd_ms": 0.3078403264717962,
+      "P95_ms": 14.94587931668813,
+      "P99_ms": 18.954183483328197,
+      "processing_fps": 104.02309628865775,
+      "deadline_miss_rate": 0.0,
+      "inference_ms": 7.783562300707918,
+      "peak_memory_allocated_mib": 87.47265625,
+      "peak_memory_reserved_mib": 118.0,
+      "scan_stages": "none",
+      "num_DA_LC_blocks": 0
+    },
+    {
+      "model": "BAC-SSM-YOLO full",
+      "seed": 0,
+      "params_m": 5.342903,
+      "gflops": 15.313957600000002,
+      "P": 0.6474399736734426,
+      "R": 0.6505797001824254,
+      "mAP50": 0.6847680098028484,
+      "mAP50_95": 0.48052034095406776,
+      "mean_latency_ms": 16.814205115188717,
+      "latency_sd_ms": 0.38437271390185596,
+      "P95_ms": 21.47536286641601,
+      "P99_ms": 27.591756843054696,
+      "processing_fps": 59.47352212901659,
+      "deadline_miss_rate": 0.07861635220125787,
+      "inference_ms": 15.093933902947315,
+      "peak_memory_allocated_mib": 355.8447265625,
+      "peak_memory_reserved_mib": 428.0,
+      "scan_stages": "P2,P3,P4,P5,P5-context,P4-neck",
+      "num_DA_LC_blocks": 6
+    },
+    {
+      "model": "BAC-SSM-YOLO-RT-P45",
+      "seed": 0,
+      "params_m": 5.320331,
+      "gflops": 15.2054392,
+      "P": 0.6416154699608712,
+      "R": 0.6566334184599069,
+      "mAP50": 0.6758134906411993,
+      "mAP50_95": 0.47359622569097426,
+      "mean_latency_ms": 15.60861559274519,
+      "latency_sd_ms": 0.22255455167340432,
+      "P95_ms": 19.18521571600043,
+      "P99_ms": 26.996676102559526,
+      "processing_fps": 64.06718097822815,
+      "deadline_miss_rate": 0.0,
+      "inference_ms": 13.894037333304093,
+      "peak_memory_allocated_mib": 294.23583984375,
+      "peak_memory_reserved_mib": 340.0,
+      "scan_stages": "P4/C4,P5/C5",
+      "num_DA_LC_blocks": 2
+    },
+    {
+      "model": "BAC-SSM-YOLO-RT-NoP2",
+      "seed": 0,
+      "scan_stages": "P3/C3,P4/C4,P5/C5,P5-context,P4-neck",
+      "num_DA_LC_blocks": 5,
+      "params_m": 5.340554,
+      "gflops": 15.2541304,
+      "P": 0.6402865725861443,
+      "R": 0.6670501139392676,
+      "mAP50": 0.6824819971378284,
+      "mAP50_95": 0.476725760457887,
+      "mean_latency_ms": 17.555267963432286,
+      "latency_sd_ms": 0.3186246697567178,
+      "P95_ms": 26.749324382763003,
+      "P99_ms": 34.20631555037592,
+      "processing_fps": 56.96295847394669,
+      "deadline_miss_rate": 1.10062893081761,
+      "inference_ms": 15.772903608522086,
+      "peak_memory_allocated_mib": 294.31787109375,
+      "peak_memory_reserved_mib": 340.0
+    },
+    {
+      "model": "BAC-SSM-YOLO-RT-NoEarly",
+      "seed": 0,
+      "scan_stages": "P4/C4,P5/C5,P5-context,P4-neck",
+      "num_DA_LC_blocks": 4,
+      "params_m": 5.333813,
+      "gflops": 15.2213112,
+      "P": 0.6464307271489164,
+      "R": 0.6567212772790549,
+      "mAP50": 0.6811799375349219,
+      "mAP50_95": 0.4753617917267939,
+      "mean_latency_ms": 16.561649378235295,
+      "latency_sd_ms": 0.17296122155982493,
+      "P95_ms": 23.95702133083735,
+      "P99_ms": 34.786521036779334,
+      "processing_fps": 60.38045952803245,
+      "deadline_miss_rate": 1.8867924528301887,
+      "inference_ms": 14.845231698578893,
+      "peak_memory_allocated_mib": 294.29052734375,
+      "peak_memory_reserved_mib": 340.0
+    }
+  ],
+  "per_class": {
+    "BAC-SSM-YOLO-RT-NoP2": {
+      "hand-raising": {
+        "precision": 0.7209387464797384,
+        "recall": 0.7514423076923077,
+        "ap50": 0.7838365440627911,
+        "ap50_95": 0.537651476039776
+      },
+      "reading": {
+        "precision": 0.5738869896328677,
+        "recall": 0.6343234187408797,
+        "ap50": 0.619838862857888,
+        "ap50_95": 0.4314937719719345
+      },
+      "writing": {
+        "precision": 0.6260339816458268,
+        "recall": 0.6153846153846154,
+        "ap50": 0.6437705844928059,
+        "ap50_95": 0.4610320333619506
+      }
+    },
+    "BAC-SSM-YOLO-RT-NoEarly": {
+      "hand-raising": {
+        "precision": 0.7294096872049581,
+        "recall": 0.7288461538461538,
+        "ap50": 0.7832311633550952,
+        "ap50_95": 0.5342278591077749
+      },
+      "reading": {
+        "precision": 0.5819581933439786,
+        "recall": 0.6239638281838734,
+        "ap50": 0.6052386923482281,
+        "ap50_95": 0.42021684247418734
+      },
+      "writing": {
+        "precision": 0.6279243008978127,
+        "recall": 0.6173538498071376,
+        "ap50": 0.655069956901442,
+        "ap50_95": 0.4716406735984194
+      }
+    }
+  },
+  "candidate_analysis": {
+    "BAC-SSM-YOLO-RT-NoP2": {
+      "tier": "C",
+      "relative_to_full": {
+        "ap_difference_points": -0.3794580496180755,
+        "latency_difference_ms": 0.741062848243569,
+        "latency_reduction_percent": -4.407361770400597,
+        "fps_gain_percent": -4.2213132251083145,
+        "memory_reduction_percent": 17.290365959081743
+      },
+      "relative_to_rt_p45": {
+        "ap_difference_points": 0.3129534766912745,
+        "latency_difference_ms": 1.9466523706870955,
+        "latency_reduction_percent": -12.471652973450698,
+        "fps_gain_percent": -11.088707815465892,
+        "memory_reduction_percent": -0.027879421501997292
+      },
+      "relative_to_yolo26s": {
+        "ap_difference_points": 0.9658265904207652,
+        "latency_difference_ms": 7.935563133243242,
+        "latency_reduction_percent": -82.49279238110776,
+        "fps_gain_percent": -45.24008560956698,
+        "memory_reduction_percent": -236.4684276336355
+      },
+      "pareto_optimal": false
+    },
+    "BAC-SSM-YOLO-RT-NoEarly": {
+      "tier": "C",
+      "relative_to_full": {
+        "ap_difference_points": -0.5158549227273879,
+        "latency_difference_ms": -0.2525557369534219,
+        "latency_reduction_percent": 1.5020379210509471,
+        "fps_gain_percent": 1.5249431453688622,
+        "memory_reduction_percent": 17.298050139275766
+      },
+      "relative_to_rt_p45": {
+        "ap_difference_points": 0.17655660358196212,
+        "latency_difference_ms": 0.9530337854901045,
+        "latency_reduction_percent": -6.105818801336049,
+        "fps_gain_percent": -5.7544617913632745,
+        "memory_reduction_percent": -0.01858628100133153
+      },
+      "relative_to_yolo26s": {
+        "ap_difference_points": 0.8294297173114529,
+        "latency_difference_ms": 6.941944548046251,
+        "latency_reduction_percent": -72.16379993553119,
+        "fps_gain_percent": -41.954756508611936,
+        "memory_reduction_percent": -236.43716786495781
+      },
+      "pareto_optimal": true
+    }
+  },
+  "pareto_front": [
+    "YOLO26s",
+    "BAC-SSM-YOLO full",
+    "BAC-SSM-YOLO-RT-P45",
+    "BAC-SSM-YOLO-RT-NoEarly"
+  ],
+  "best_qualifying_candidate": null,
+  "tier_thresholds": {
+    "A": {
+      "mAP50_95_min": 0.476,
+      "mean_latency_ms_max": 14.5
+    },
+    "B": {
+      "mAP50_95_min": 0.474,
+      "mean_latency_ms_max": 15.0
+    }
+  },
+  "all_values_finite": true
+}
