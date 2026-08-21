@@ -1,0 +1,102 @@
+{
+  "architecture": {
+    "P2": "native YOLO26 C3k2 [256, False, 0.25]",
+    "P3": "native YOLO26 C3k2 [512, False, 0.25]",
+    "P4": "C3k2DALCSS2D",
+    "P5": "C3k2DALCSS2D",
+    "P5_context": "C2PSADALCSS2D",
+    "P4_neck": "C3k2DALCSS2D"
+  },
+  "candidate": {
+    "model": "BAC-SSM-YOLO-RT-ConvEarly",
+    "seed": 0,
+    "scan_stages": "P4/C4,P5/C5,P5-context,P4-neck",
+    "num_DA_LC_blocks": 4,
+    "num_standard_SS2D_blocks": 0,
+    "num_early_conv_blocks": 2,
+    "params_m": 4.905873,
+    "gflops": 8.672152800000001,
+    "P": 0.6035953621749711,
+    "R": 0.6107636662854206,
+    "mAP50": 0.6322857469342558,
+    "mAP50_95": 0.42366539590864044,
+    "mean_latency_ms": 14.323516930394877,
+    "latency_sd_ms": 0.8957913530204398,
+    "P50_ms": 12.745177500012991,
+    "P90_ms": 19.556694233445647,
+    "P95_ms": 24.31656736625882,
+    "P99_ms": 29.92465427659528,
+    "processing_fps": 69.81525590813342,
+    "deadline_miss_rate": 0.2358490566037736,
+    "inference_ms": 12.6470928726636,
+    "peak_memory_allocated_mib": 79.6044921875,
+    "peak_memory_reserved_mib": 106.0
+  },
+  "per_class": {
+    "hand-raising": {
+      "precision": 0.6720785439077039,
+      "recall": 0.6826923076923077,
+      "ap50": 0.7279072550375141,
+      "ap50_95": 0.4790576051619017
+    },
+    "reading": {
+      "precision": 0.541431747672153,
+      "recall": 0.5614333139050433,
+      "ap50": 0.5703542725424839,
+      "ap50_95": 0.37794124932406936
+    },
+    "writing": {
+      "precision": 0.5972757949450564,
+      "recall": 0.5881653772589109,
+      "ap50": 0.5985957132227693,
+      "ap50_95": 0.4139973332399503
+    }
+  },
+  "NoEarly_vs_ConvEarly": {
+    "ap_difference_points": -5.169639581815344,
+    "latency_reduction_ms": 2.2381324478404174,
+    "latency_reduction_percent": 13.513946568520453,
+    "fps_increase": 9.43479638010097,
+    "fps_increase_percent": 15.625578960227582,
+    "P95_reduction_ms": -0.3595460354214701,
+    "P99_reduction_ms": 4.8618667601840535,
+    "deadline_miss_reduction_points": 1.650943396226415,
+    "memory_reduction_mib": 214.68603515625,
+    "memory_reduction_percent": 72.95037223725625
+  },
+  "full_BAC_vs_ConvEarly": {
+    "ap_difference_points": -5.685494504542731,
+    "latency_reduction_ms": 2.4906881847938394,
+    "latency_reduction_percent": 14.81299988748166,
+    "fps_increase": 10.341733779116836,
+    "fps_increase_percent": 17.38880330087462,
+    "P95_reduction_ms": -2.84120449984281,
+    "P99_reduction_ms": -2.332897433540584,
+    "deadline_miss_reduction_points": -0.15723270440251572,
+    "memory_reduction_mib": 276.240234375,
+    "memory_reduction_percent": 77.62943041014312
+  },
+  "YOLO26s_vs_ConvEarly": {
+    "ap_difference_points": -4.340209864503891,
+    "latency_reduction_ms": -4.703812100205834,
+    "latency_reduction_percent": -48.89767600190906,
+    "fps_increase": -34.20784038052433,
+    "fps_increase_percent": -32.884851154208725,
+    "P95_reduction_ms": -9.37068804957069,
+    "P99_reduction_ms": -10.970470793267083,
+    "deadline_miss_reduction_points": -0.2358490566037736,
+    "memory_reduction_mib": 7.8681640625,
+    "memory_reduction_percent": 8.99499843701157
+  },
+  "screening": {
+    "strong": false,
+    "very_useful": false,
+    "exceptional": false,
+    "follow_up_trigger": false
+  },
+  "scientific_interpretation": "ConvEarly is measurably faster than NoEarly under the locked protocol, supporting the conclusion that the early SS2D core, rather than only DA/LC, contributes materially to runtime overhead.",
+  "three_seed_triggered": false,
+  "profiler_triggered": false,
+  "further_architecture_search_recommended": false,
+  "paper_modified": false
+}

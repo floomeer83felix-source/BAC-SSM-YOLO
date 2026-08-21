@@ -1,0 +1,25 @@
+2026-08-21 20:13:35,971 | INFO | Images found: 848; images selected: 848
+2026-08-21 20:13:35,971 | INFO | Image list SHA256: 0656a65ebc5472cea0d35f30c2d70ade50d738fb8e45b28173e7bf539f7e1041
+2026-08-21 20:14:14,099 | INFO | Preloaded decoded images: 848
+2026-08-21 20:14:14,099 | INFO | Untimed preload wall-clock: 38127.150 ms (excluded from all latency statistics)
+2026-08-21 20:14:14,679 | INFO | Actual model input shape: torch.Size([1, 3, 640, 640])
+2026-08-21 20:14:14,680 | INFO | Precision: FP32
+2026-08-21 20:14:14,681 | INFO | Device: cuda:0
+2026-08-21 20:14:14,681 | INFO | Model end2end mode: True
+2026-08-21 20:14:14,682 | INFO | Warm-up iterations using decoded RAM frames: 50
+2026-08-21 20:14:16,110 | INFO | Starting measured decoded frames: 848
+2026-08-21 20:14:17,506 | INFO | Measured 100/848 decoded frames
+2026-08-21 20:14:18,848 | INFO | Measured 200/848 decoded frames
+2026-08-21 20:14:20,142 | INFO | Measured 300/848 decoded frames
+2026-08-21 20:14:21,488 | INFO | Measured 400/848 decoded frames
+2026-08-21 20:14:22,874 | INFO | Measured 500/848 decoded frames
+2026-08-21 20:14:24,227 | INFO | Measured 600/848 decoded frames
+2026-08-21 20:14:25,715 | INFO | Measured 700/848 decoded frames
+2026-08-21 20:14:27,012 | INFO | Measured 800/848 decoded frames
+2026-08-21 20:14:27,702 | INFO | Measured 848/848 decoded frames
+2026-08-21 20:14:27,922 | INFO | Mean processing latency: 13.612606 ms; processing FPS: 73.461318
+2026-08-21 20:14:27,922 | INFO | P95: 22.832383 ms; P99: 28.584324 ms
+2026-08-21 20:14:27,923 | INFO | Mean inference latency: 12.057860 ms
+2026-08-21 20:14:27,923 | INFO | Deadline misses: 0/848
+2026-08-21 20:14:27,923 | INFO | Saved: /mnt/e/yolo/yolo26/experiments/bac_rt_final/latency/run1/latency_frames.csv
+2026-08-21 20:14:27,923 | INFO | Saved: /mnt/e/yolo/yolo26/experiments/bac_rt_final/latency/run1/latency_summary.json

@@ -1,0 +1,53 @@
+{
+  "original_YOLO26_P2_block": [
+    -1,
+    2,
+    "C3k2",
+    [
+      256,
+      false,
+      0.25
+    ]
+  ],
+  "original_YOLO26_P3_block": [
+    -1,
+    2,
+    "C3k2",
+    [
+      512,
+      false,
+      0.25
+    ]
+  ],
+  "selected_ConvEarly_P2_block": [
+    -1,
+    2,
+    "C3k2",
+    [
+      256,
+      false,
+      0.25
+    ]
+  ],
+  "selected_ConvEarly_P3_block": [
+    -1,
+    2,
+    "C3k2",
+    [
+      512,
+      false,
+      0.25
+    ]
+  ],
+  "changed_layer_indices": [
+    2,
+    4
+  ],
+  "number_of_DA_LC_blocks": 4,
+  "number_of_standard_SS2D_blocks": 0,
+  "number_of_early_convolutional_blocks": 2,
+  "params_m_before_nc_override": 4.973183,
+  "gflops_640_before_nc_override": 9.0153208,
+  "forward_output_type": "tuple",
+  "validation": "PASS"
+}

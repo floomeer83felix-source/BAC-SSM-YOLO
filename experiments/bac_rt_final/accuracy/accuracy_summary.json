@@ -1,0 +1,59 @@
+{
+  "model": "BAC-SSM-YOLO-RT-ConvEarly",
+  "weights": "/mnt/e/yolo/yolo26/experiments/bac_rt_final/weights/bac_ssm_yolo_rt_convearly_seed0_best.pt",
+  "weights_sha256": "6807a686042b21b41031a9d23c6084a5836bb39d3ad04392b9b67ce730caf265",
+  "dataset": "/mnt/e/yolo/yolo26/scb2-wsl.yaml",
+  "protocol": {
+    "split": "val",
+    "imgsz": 640,
+    "batch": 16,
+    "rect": true,
+    "conf": 0.001,
+    "iou": 0.7,
+    "augment": false,
+    "half": false,
+    "device": "0"
+  },
+  "seed": 0,
+  "params_m": 4.905873,
+  "gflops_640": 8.672152800000001,
+  "scan_stages": "P4/C4,P5/C5,P5-context,P4-neck",
+  "num_DA_LC_blocks": 4,
+  "metrics": {
+    "precision": 0.6035953621749711,
+    "recall": 0.6107636662854206,
+    "map50": 0.6322857469342558,
+    "map50_95": 0.42366539590864044
+  },
+  "per_class": {
+    "hand-raising": {
+      "precision": 0.6720785439077039,
+      "recall": 0.6826923076923077,
+      "ap50": 0.7279072550375141,
+      "ap50_95": 0.4790576051619017
+    },
+    "reading": {
+      "precision": 0.541431747672153,
+      "recall": 0.5614333139050433,
+      "ap50": 0.5703542725424839,
+      "ap50_95": 0.37794124932406936
+    },
+    "writing": {
+      "precision": 0.5972757949450564,
+      "recall": 0.5881653772589109,
+      "ap50": 0.5985957132227693,
+      "ap50_95": 0.4139973332399503
+    }
+  },
+  "legacy_dalc_compatibility": [],
+  "environment": {
+    "gpu": "NVIDIA GeForce RTX 3090",
+    "driver": "591.86",
+    "cuda": "11.8",
+    "pytorch": "2.3.1+cu118",
+    "ultralytics": "8.4.38",
+    "python": "3.10.16",
+    "git_commit": null
+  },
+  "timestamp_utc": "2026-08-21T12:13:20.818758+00:00"
+}

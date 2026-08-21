@@ -1,0 +1,43 @@
+{
+  "validation": "PASS",
+  "training": {
+    "triggered_seeds": [0],
+    "seed0_epochs": 100,
+    "seed1_triggered": false,
+    "seed2_triggered": false
+  },
+  "checkpoint": {
+    "sha256": "6807a686042b21b41031a9d23c6084a5836bb39d3ad04392b9b67ce730caf265",
+    "training_best_matches_published_weight": true,
+    "accuracy_weight_matches": true,
+    "all_latency_weights_match": true
+  },
+  "accuracy_protocol": {
+    "validated": true,
+    "imgsz": 640,
+    "batch": 16,
+    "rect": true,
+    "conf": 0.001,
+    "iou": 0.7,
+    "augment": false,
+    "half": false
+  },
+  "latency_protocol": {
+    "validated": true,
+    "runs": 3,
+    "frames_per_run": 848,
+    "warmup_iterations": 50,
+    "precision": "FP32",
+    "batch": 1,
+    "input_shape": [1, 3, 640, 640],
+    "rect": false,
+    "image_list_sha256": "0656a65ebc5472cea0d35f30c2d70ade50d738fb8e45b28173e7bf539f7e1041"
+  },
+  "decision": {
+    "threshold_passed": false,
+    "three_seed_follow_up_triggered": false,
+    "profiler_follow_up_triggered": false,
+    "architecture_search_stopped": true
+  },
+  "paper_modified": false
+}
