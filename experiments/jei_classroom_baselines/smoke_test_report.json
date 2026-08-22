@@ -1,0 +1,383 @@
+{
+  "statement": "These are paper-faithful reimplementations based on the published method descriptions and are not claimed to be the authors' official source code.",
+  "environment": {
+    "python": "3.10.16",
+    "pytorch": "2.3.1+cu118",
+    "cuda": "11.8",
+    "gpu": "NVIDIA GeForce RTX 3090",
+    "ultralytics": "8.4.38",
+    "git_commit": "f8b724ae93e05d4deae1095d5bb1a7d72d254f70"
+  },
+  "models": {
+    "PLA-YOLO11n": {
+      "config": "experiments/jei_classroom_baselines/configs/pla_yolo11n_scb2.yaml",
+      "instantiate": true,
+      "instantiated_on_cpu": true,
+      "forward": true,
+      "error": null,
+      "device": "cuda:0",
+      "input_shape": [
+        1,
+        3,
+        640,
+        640
+      ],
+      "params": 3474412,
+      "params_m": 3.474412,
+      "trainable_params": 3474396,
+      "trainable_params_m": 3.474396,
+      "gflops_640": 10.2993408,
+      "detect_scales": 4,
+      "detect_feature_shapes": [
+        [
+          1,
+          32,
+          160,
+          160
+        ],
+        [
+          1,
+          64,
+          80,
+          80
+        ],
+        [
+          1,
+          128,
+          40,
+          40
+        ],
+        [
+          1,
+          256,
+          20,
+          20
+        ]
+      ],
+      "detect_feature_channels": [
+        32,
+        64,
+        128,
+        256
+      ],
+      "detect_feature_sizes": [
+        [
+          160,
+          160
+        ],
+        [
+          80,
+          80
+        ],
+        [
+          40,
+          40
+        ],
+        [
+          20,
+          20
+        ]
+      ],
+      "detect_strides": [
+        4,
+        8,
+        16,
+        32
+      ],
+      "model_detect_strides": [
+        4.0,
+        8.0,
+        16.0,
+        32.0
+      ],
+      "module_counts": {
+        "C3k2PConv": 10,
+        "AIFI": 1,
+        "LSKA": 4,
+        "C2fWADCA": 0,
+        "TwoDPEMHA": 0,
+        "DySample": 0
+      },
+      "constructor_validation": {
+        "C3k2PConv": {
+          "actual": {
+            "c1": 32,
+            "c2": 64,
+            "n": 1,
+            "c3k": false,
+            "e": 0.25,
+            "n_div": 4
+          },
+          "correct": true
+        },
+        "LSKA": {
+          "actual": {
+            "c": 32,
+            "k": 7,
+            "dilation": 2
+          },
+          "correct": true
+        }
+      },
+      "two_dpemha_input_shapes": [],
+      "output_type": "tuple",
+      "output_shapes": [
+        {
+          "path": "output[0]",
+          "shape": [
+            1,
+            7,
+            34000
+          ],
+          "dtype": "torch.float32"
+        },
+        {
+          "path": "output[1].boxes",
+          "shape": [
+            1,
+            64,
+            34000
+          ],
+          "dtype": "torch.float32"
+        },
+        {
+          "path": "output[1].scores",
+          "shape": [
+            1,
+            3,
+            34000
+          ],
+          "dtype": "torch.float32"
+        },
+        {
+          "path": "output[1].feats[0]",
+          "shape": [
+            1,
+            32,
+            160,
+            160
+          ],
+          "dtype": "torch.float32"
+        },
+        {
+          "path": "output[1].feats[1]",
+          "shape": [
+            1,
+            64,
+            80,
+            80
+          ],
+          "dtype": "torch.float32"
+        },
+        {
+          "path": "output[1].feats[2]",
+          "shape": [
+            1,
+            128,
+            40,
+            40
+          ],
+          "dtype": "torch.float32"
+        },
+        {
+          "path": "output[1].feats[3]",
+          "shape": [
+            1,
+            256,
+            20,
+            20
+          ],
+          "dtype": "torch.float32"
+        }
+      ],
+      "nan": false,
+      "inf": false,
+      "peak_gpu_memory_mib": 210.17529296875,
+      "structure_passed": true,
+      "constructors_passed": true,
+      "smoke_test_passed": true
+    },
+    "WAD-YOLOv8n": {
+      "config": "experiments/jei_classroom_baselines/configs/wad_yolov8n_scb2.yaml",
+      "instantiate": true,
+      "instantiated_on_cpu": true,
+      "forward": true,
+      "error": null,
+      "device": "cuda:0",
+      "input_shape": [
+        1,
+        3,
+        640,
+        640
+      ],
+      "params": 3909769,
+      "params_m": 3.909769,
+      "trainable_params": 3909753,
+      "trainable_params_m": 3.909753,
+      "gflops_640": 9.6239232,
+      "detect_scales": 3,
+      "detect_feature_shapes": [
+        [
+          1,
+          64,
+          80,
+          80
+        ],
+        [
+          1,
+          128,
+          40,
+          40
+        ],
+        [
+          1,
+          256,
+          20,
+          20
+        ]
+      ],
+      "detect_feature_channels": [
+        64,
+        128,
+        256
+      ],
+      "detect_feature_sizes": [
+        [
+          80,
+          80
+        ],
+        [
+          40,
+          40
+        ],
+        [
+          20,
+          20
+        ]
+      ],
+      "detect_strides": [
+        8,
+        16,
+        32
+      ],
+      "model_detect_strides": [
+        8.0,
+        16.0,
+        32.0
+      ],
+      "module_counts": {
+        "C3k2PConv": 0,
+        "AIFI": 0,
+        "LSKA": 0,
+        "C2fWADCA": 4,
+        "TwoDPEMHA": 1,
+        "DySample": 2
+      },
+      "constructor_validation": {
+        "C2fWADCA": {
+          "actual": {
+            "c1": 32,
+            "c2": 32,
+            "n": 1,
+            "shortcut": true,
+            "g": 1,
+            "e": 0.5,
+            "reduction": 16
+          },
+          "correct": true
+        },
+        "TwoDPEMHA": {
+          "actual": {
+            "c": 256,
+            "num_heads": 8,
+            "dropout": 0.0
+          },
+          "correct": true
+        }
+      },
+      "two_dpemha_input_shapes": [
+        [
+          1,
+          256,
+          20,
+          20
+        ]
+      ],
+      "output_type": "tuple",
+      "output_shapes": [
+        {
+          "path": "output[0]",
+          "shape": [
+            1,
+            7,
+            8400
+          ],
+          "dtype": "torch.float32"
+        },
+        {
+          "path": "output[1].boxes",
+          "shape": [
+            1,
+            64,
+            8400
+          ],
+          "dtype": "torch.float32"
+        },
+        {
+          "path": "output[1].scores",
+          "shape": [
+            1,
+            3,
+            8400
+          ],
+          "dtype": "torch.float32"
+        },
+        {
+          "path": "output[1].feats[0]",
+          "shape": [
+            1,
+            64,
+            80,
+            80
+          ],
+          "dtype": "torch.float32"
+        },
+        {
+          "path": "output[1].feats[1]",
+          "shape": [
+            1,
+            128,
+            40,
+            40
+          ],
+          "dtype": "torch.float32"
+        },
+        {
+          "path": "output[1].feats[2]",
+          "shape": [
+            1,
+            256,
+            20,
+            20
+          ],
+          "dtype": "torch.float32"
+        }
+      ],
+      "nan": false,
+      "inf": false,
+      "peak_gpu_memory_mib": 194.21533203125,
+      "structure_passed": true,
+      "constructors_passed": true,
+      "smoke_test_passed": true
+    }
+  },
+  "parser_validation": {
+    "C3k2PConv": true,
+    "C2fWADCA": true,
+    "LSKA": true,
+    "TwoDPEMHA": true
+  },
+  "ready_for_training_review": true,
+  "formal_training_executed": false,
+  "paper_modified": false
+}

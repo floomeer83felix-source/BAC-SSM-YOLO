@@ -96,6 +96,7 @@ from .conv import (
     ShuffleConcat,
     SpatialAttention,
 )
+from .classroom_baselines import C2fWADCA, C3k2PConv, LSKA, TwoDPEMHA
 from .efficient_vim import EfficientViMBlock
 from .dysample import DySample, SCBDySample, ZDDySample
 from .head import (
@@ -190,6 +191,7 @@ __all__ = (
     "TaskAlignDetect",
     "TripletDetect",
     "C2f",
+    "C2fWADCA",
     "C2fAttn",
     "C2fCIB",
     "C2fPSA",
@@ -197,6 +199,7 @@ __all__ = (
     "C2PSASS2D",
     "C3Ghost",
     "C3k2",
+    "C3k2PConv",
     "C3k2AsymConv",
     "C3k2DWConv",
     "C3k2LargeKernel",
@@ -247,6 +250,7 @@ __all__ = (
     "FAAFusion",
     "LiteAlignFuse",
     "LSKBlock",
+    "LSKA",
     "DyHeadBlock",
     "RMSBalanceFuse",
     "SelectiveScaleFuse",
@@ -278,6 +282,7 @@ __all__ = (
     "ShuffleConcat",
     "SpatialAttention",
     "TorchVision",
+    "TwoDPEMHA",
     "TransformerBlock",
     "TransformerEncoderLayer",
     "TransformerLayer",

@@ -31,6 +31,7 @@ from ultralytics.nn.modules import (
     Bottleneck,
     BottleneckCSP,
     C2f,
+    C2fWADCA,
     C2fAttn,
     C2fCIB,
     C2fPSA,
@@ -38,6 +39,7 @@ from ultralytics.nn.modules import (
     C2PSASS2D,
     C3Ghost,
     C3k2,
+    C3k2PConv,
     C3k2AsymConv,
     C3k2BAPCSS,
     C3k2DALCSS2D,
@@ -85,6 +87,7 @@ from ultralytics.nn.modules import (
     ImagePoolingAttn,
     Index,
     LLSABlock,
+    LSKA,
     LSKBlock,
     DyHeadBlock,
     ContextGuideFuse,
@@ -110,6 +113,7 @@ from ultralytics.nn.modules import (
     ShuffleConcat,
     TaskAlignDetect,
     TorchVision,
+    TwoDPEMHA,
     TripletDetect,
     WorldDetect,
     YOLOEDetect,
@@ -1639,9 +1643,11 @@ def parse_model(d, ch, verbose=True):
             C1,
             C2,
             C2f,
+            C2fWADCA,
             C2PSADALCSS2D,
             C2PSASS2D,
             C3k2,
+            C3k2PConv,
             C3k2AsymConv,
             C3k2BAPCSS,
             C3k2DALCSS2D,
@@ -1687,7 +1693,9 @@ def parse_model(d, ch, verbose=True):
             C1,
             C2,
             C2f,
+            C2fWADCA,
             C3k2,
+            C3k2PConv,
             C3k2AsymConv,
             C3k2BAPCSS,
             C3k2DALCSS2D,
@@ -1743,7 +1751,7 @@ def parse_model(d, ch, verbose=True):
             if m in repeat_modules:
                 args.insert(2, n)  # number of repeats
                 n = 1
-            if m in {C3k2, C3k2AsymConv, C3k2BAPCSS, C3k2DALCSS2D, C3k2DWConv, C3k2LargeKernel, C3k2SCBConv, C3k2SCBNeck, C3k2SCBNeckCA, C3k2SCBNeckCAPlus, C3k2SCBSS2D, C3k2GS, C3k2Rep, C3k2SFMamba, C3k2SS2D, C3k2SS2DLite, C3k2SS2DSFLite}:  # for M/L/X sizes
+            if m in {C3k2, C3k2PConv, C3k2AsymConv, C3k2BAPCSS, C3k2DALCSS2D, C3k2DWConv, C3k2LargeKernel, C3k2SCBConv, C3k2SCBNeck, C3k2SCBNeckCA, C3k2SCBNeckCAPlus, C3k2SCBSS2D, C3k2GS, C3k2Rep, C3k2SFMamba, C3k2SS2D, C3k2SS2DLite, C3k2SS2DSFLite}:  # for M/L/X sizes
                 legacy = False
                 if scale in "mlx":
                     args[3] = True
@@ -1758,6 +1766,9 @@ def parse_model(d, ch, verbose=True):
             if c2 != nc:
                 c2 = make_divisible(min(c2, max_channels) * width, 8)
             args = [c2, *args[1:]] if m is RMSBalanceFuse else [[ch[x] for x in f], c2, *args[1:]]
+        elif m in {LSKA, TwoDPEMHA}:
+            c2 = ch[f]
+            args = [c2, *args]
         elif m is AIFI:
             args = [ch[f], *args]
         elif m in {DySample, SCBDySample, ZDDySample}:
