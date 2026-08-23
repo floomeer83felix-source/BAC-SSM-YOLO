@@ -31,6 +31,7 @@ def parse_args():
     parser.add_argument("--seed", type=int, default=0)
     parser.add_argument("--workers", type=int, default=8)
     parser.add_argument("--no-pretrained", action="store_true")
+    parser.add_argument("--pretrained", default=None, help="Optional explicit path to compatible pretrained weights")
     parser.add_argument("--epochs", type=int, default=None)
     parser.add_argument("--batch", type=int, default=None)
     parser.add_argument("--optimizer", default=None)
@@ -41,8 +42,9 @@ def main():
     args = parse_args()
     model = YOLO(str(CONFIGS[args.model]), task="detect")
     if not args.no_pretrained:
-        print(f"[INFO] Partially loading compatible weights from {PRETRAINED[args.model]}")
-        model.load(PRETRAINED[args.model])
+        pretrained = args.pretrained or PRETRAINED[args.model]
+        print(f"[INFO] Partially loading compatible weights from {pretrained}")
+        model.load(pretrained)
 
     if args.recipe == "matched":
         epochs = args.epochs or 100

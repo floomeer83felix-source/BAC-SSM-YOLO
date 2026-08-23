@@ -1,0 +1,31 @@
+{
+  "weights": "/mnt/e/yolo/BAC-SSM-YOLO/experiments/jei_classroom_baselines/matched_seed0/runs/wad_yolov8n_reimpl_seed0/weights/best.pt",
+  "data": "/mnt/e/yolo/BAC-SSM-YOLO/configs/datasets/scb2-wsl.yaml",
+  "protocol": {
+    "imgsz": 640,
+    "fp32": true,
+    "rect": true,
+    "conf": 0.001,
+    "iou": 0.7,
+    "augment": false,
+    "batch": 16
+  },
+  "P": 0.6601228651957362,
+  "R": 0.6460413191291111,
+  "mAP50": 0.6857180033455165,
+  "mAP50_95": 0.47721037595260146,
+  "per_class": {
+    "hand-raising": {
+      "AP50": 0.7842883567065553,
+      "AP50_95": 0.5370097986391893
+    },
+    "reading": {
+      "AP50": 0.6193732206246143,
+      "AP50_95": 0.42899648888266706
+    },
+    "writing": {
+      "AP50": 0.6534924327053798,
+      "AP50_95": 0.4656248403359478
+    }
+  }
+}

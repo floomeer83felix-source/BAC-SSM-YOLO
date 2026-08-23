@@ -1,0 +1,31 @@
+{
+  "weights": "/mnt/e/yolo/yolo26/runs/detect/scb-2/yolo26s/weights/best.pt",
+  "data": "/mnt/e/yolo/BAC-SSM-YOLO/configs/datasets/scb2-wsl.yaml",
+  "protocol": {
+    "imgsz": 640,
+    "fp32": true,
+    "rect": true,
+    "conf": 0.001,
+    "iou": 0.7,
+    "augment": false,
+    "batch": 16
+  },
+  "P": 0.6328948637554875,
+  "R": 0.6430714515148019,
+  "mAP50": 0.672086891997956,
+  "mAP50_95": 0.46706749455367935,
+  "per_class": {
+    "hand-raising": {
+      "AP50": 0.766764790109886,
+      "AP50_95": 0.5215580825037398
+    },
+    "reading": {
+      "AP50": 0.6057984311012062,
+      "AP50_95": 0.41829201949741607
+    },
+    "writing": {
+      "AP50": 0.6436974547827758,
+      "AP50_95": 0.4613523816598823
+    }
+  }
+}

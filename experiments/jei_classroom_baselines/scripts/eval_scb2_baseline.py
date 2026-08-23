@@ -33,13 +33,22 @@ def main():
         rect=True,
         conf=0.001,
         iou=0.7,
+        augment=False,
         plots=False,
         verbose=True,
     )
     payload = {
         "weights": str(Path(args.weights).resolve()),
         "data": str(Path(args.data).resolve()),
-        "protocol": {"imgsz": 640, "fp32": True, "rect": True, "conf": 0.001, "iou": 0.7, "batch": args.batch},
+        "protocol": {
+            "imgsz": 640,
+            "fp32": True,
+            "rect": True,
+            "conf": 0.001,
+            "iou": 0.7,
+            "augment": False,
+            "batch": args.batch,
+        },
         "P": float(result.box.mp),
         "R": float(result.box.mr),
         "mAP50": float(result.box.map50),

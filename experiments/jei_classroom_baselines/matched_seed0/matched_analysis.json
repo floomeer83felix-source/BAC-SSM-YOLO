@@ -1,0 +1,185 @@
+{
+  "status": {
+    "training_completed": true,
+    "pla_epochs_completed": 100,
+    "wad_epochs_completed": 100,
+    "sequential_training": true,
+    "locked_evaluation_completed": true
+  },
+  "dataset_lock": {
+    "train_images": 3418,
+    "val_images": 848,
+    "train_instances": 14506,
+    "val_instances": 3992,
+    "class_order": [
+      "hand-raising",
+      "reading",
+      "writing"
+    ],
+    "train_image_list_sha256": "8027C2A6707A9EC30D63A2946A4B1FF47DF83C7EC399BBDFA3F9382D3460CF33",
+    "val_image_list_sha256": "969E0418EC80FE8B0BE46082868A2A5FCCC7DA9578DAB543A1CFB2CE70C5446C"
+  },
+  "training_protocol": {
+    "epochs": 100,
+    "imgsz": 640,
+    "batch": 16,
+    "seed": 0,
+    "deterministic": true,
+    "workers": 8,
+    "optimizer": "auto",
+    "PLA_pretrained": "yolo11n.pt (partial compatible loading)",
+    "WAD_pretrained": "yolov8n.pt (partial compatible loading)"
+  },
+  "evaluation_protocol": {
+    "imgsz": 640,
+    "fp32": true,
+    "rect": true,
+    "conf": 0.001,
+    "iou": 0.7,
+    "augment": false,
+    "batch": 16
+  },
+  "bac_gate_check": {
+    "expected_mAP50_95_percent": 48.05,
+    "measured_mAP50_95_percent": 48.052,
+    "absolute_error_points": 0.002,
+    "tolerance_points": 0.1,
+    "passed": true
+  },
+  "ranking": [
+    {
+      "rank": 1,
+      "model": "BAC-SSM-YOLO",
+      "mAP50_95_percent": 48.052
+    },
+    {
+      "rank": 2,
+      "model": "WAD-YOLOv8n-reimpl",
+      "mAP50_95_percent": 47.721
+    },
+    {
+      "rank": 3,
+      "model": "YOLO26s",
+      "mAP50_95_percent": 46.7067
+    },
+    {
+      "rank": 4,
+      "model": "PLA-YOLO11n-reimpl",
+      "mAP50_95_percent": 43.7396
+    }
+  ],
+  "deltas_vs_BAC": {
+    "PLA-YOLO11n-reimpl": {
+      "delta_mAP50_points_vs_BAC": -3.7113,
+      "delta_mAP50_95_points_vs_BAC": -4.3124,
+      "delta_params_M_vs_BAC": -1.868491,
+      "delta_GFLOPs_vs_BAC": -5.0146168
+    },
+    "WAD-YOLOv8n-reimpl": {
+      "delta_mAP50_points_vs_BAC": 0.095,
+      "delta_mAP50_95_points_vs_BAC": -0.331,
+      "delta_params_M_vs_BAC": -1.433134,
+      "delta_GFLOPs_vs_BAC": -5.6900344
+    }
+  },
+  "best_classroom_baseline": "WAD-YOLOv8n-reimpl",
+  "absolute_gap_to_BAC_points": 0.331,
+  "recommend_three_seed_followup": true,
+  "three_seed_followup_executed": false,
+  "checkpoints": {
+    "PLA-YOLO11n-reimpl": {
+      "path": "E:\\yolo\\BAC-SSM-YOLO\\experiments\\jei_classroom_baselines\\matched_seed0\\runs\\pla_yolo11n_reimpl_seed0\\weights\\best.pt",
+      "sha256": "4AF710E876401BB26664ED3D531B166451F546F662493A5B5B21EA57D27439C7",
+      "best_epoch": 100
+    },
+    "WAD-YOLOv8n-reimpl": {
+      "path": "E:\\yolo\\BAC-SSM-YOLO\\experiments\\jei_classroom_baselines\\matched_seed0\\runs\\wad_yolov8n_reimpl_seed0\\weights\\best.pt",
+      "sha256": "DF913BBFE51E97194113B4FA45BD19F72E2188E7552053928397A6B1DB764FEC",
+      "best_epoch": 88
+    },
+    "BAC-SSM-YOLO": {
+      "path": "E:\\yolo\\BAC-SSM-YOLO\\weights\\BAC-SSM-YOLO_scb2_best.pt",
+      "sha256": "96B801E4BF0EA7DAA4C6E1D69DB54EABFB2F12ADA90E57C93C411F6697A5FA93",
+      "best_epoch": null
+    },
+    "YOLO26s": {
+      "path": "E:\\yolo\\yolo26\\runs\\detect\\scb-2\\yolo26s\\weights\\best.pt",
+      "sha256": "248F836C921C3CA383B36A6899DEA16827BB0C93D33092DA2EC3B94DCC7554D8",
+      "best_epoch": 100
+    }
+  },
+  "caveats": [
+    "PyTorch emitted warn-only nondeterminism notices for grid_sampler_2d backward and Flash Attention during WAD training despite deterministic=True.",
+    "Params and GFLOPs are unified unfused architecture-profile values at 640 pixels; fused checkpoint summaries are not used in the comparison."
+  ],
+  "results": [
+    {
+      "model": "BAC-SSM-YOLO",
+      "seed": 0,
+      "params_M": 5.342903,
+      "GFLOPs": 15.3139576,
+      "P_percent": 64.744,
+      "R_percent": 65.058,
+      "mAP50_percent": 68.4768,
+      "mAP50_95_percent": 48.052,
+      "hand_raising_AP50_percent": 78.5142,
+      "hand_raising_AP50_95_percent": 54.0644,
+      "reading_AP50_percent": 62.5855,
+      "reading_AP50_95_percent": 43.8299,
+      "writing_AP50_percent": 64.3307,
+      "writing_AP50_95_percent": 46.2619,
+      "rank_by_mAP50_95": 1
+    },
+    {
+      "model": "WAD-YOLOv8n-reimpl",
+      "seed": 0,
+      "params_M": 3.909769,
+      "GFLOPs": 9.6239232,
+      "P_percent": 66.0123,
+      "R_percent": 64.6041,
+      "mAP50_percent": 68.5718,
+      "mAP50_95_percent": 47.721,
+      "hand_raising_AP50_percent": 78.4288,
+      "hand_raising_AP50_95_percent": 53.701,
+      "reading_AP50_percent": 61.9373,
+      "reading_AP50_95_percent": 42.8996,
+      "writing_AP50_percent": 65.3492,
+      "writing_AP50_95_percent": 46.5625,
+      "rank_by_mAP50_95": 2
+    },
+    {
+      "model": "YOLO26s",
+      "seed": 0,
+      "params_M": 9.950186,
+      "GFLOPs": 22.5073152,
+      "P_percent": 63.2895,
+      "R_percent": 64.3071,
+      "mAP50_percent": 67.2087,
+      "mAP50_95_percent": 46.7067,
+      "hand_raising_AP50_percent": 76.6765,
+      "hand_raising_AP50_95_percent": 52.1558,
+      "reading_AP50_percent": 60.5798,
+      "reading_AP50_95_percent": 41.8292,
+      "writing_AP50_percent": 64.3697,
+      "writing_AP50_95_percent": 46.1352,
+      "rank_by_mAP50_95": 3
+    },
+    {
+      "model": "PLA-YOLO11n-reimpl",
+      "seed": 0,
+      "params_M": 3.474412,
+      "GFLOPs": 10.2993408,
+      "P_percent": 61.868,
+      "R_percent": 63.408,
+      "mAP50_percent": 64.7655,
+      "mAP50_95_percent": 43.7396,
+      "hand_raising_AP50_percent": 74.7006,
+      "hand_raising_AP50_95_percent": 49.4488,
+      "reading_AP50_percent": 56.7975,
+      "reading_AP50_95_percent": 38.67,
+      "writing_AP50_percent": 62.7984,
+      "writing_AP50_95_percent": 43.1001,
+      "rank_by_mAP50_95": 4
+    }
+  ]
+}
