@@ -81,7 +81,7 @@ The released experiments follow the SCB-Dataset2 YOLO-format split:
 
 | Split | Images | Instances |
 |---|---:|---:|
-| Train | 3,418 | 14,515 |
+| Train | 3,418 | 14,506 |
 | Val | 848 | 3,992 |
 
 Expected directory layout:
@@ -150,9 +150,9 @@ The script uses warmup iterations and reports both latency and FPS.
 
 | Model | Params (M) | GFLOPs | FPS | P (%) | R (%) | mAP@0.5 (%) | mAP@0.5:0.95 (%) |
 |---|---:|---:|---:|---:|---:|---:|---:|
-| BAC-SSM-YOLO | 5.34 | 15.28 | 57.64 | 64.77 | 65.09 | 68.46 | 48.03 |
+| BAC-SSM-YOLO | 5.34 | 15.28 | 48.64 | 64.77 | 65.09 | 68.46 | 48.03 |
 
-All FPS values in the manuscript were measured under a unified Mamba-SSM environment.
+The table FPS is the manuscript's forward-only RTX 3090 FP32 batch-1 measurement (50 warm-up iterations and 200 CUDA-synchronised timed iterations, excluding image decoding, pre/post-processing, and I/O). The manuscript reports decoded-frame processing separately.
 
 ## Notes
 
