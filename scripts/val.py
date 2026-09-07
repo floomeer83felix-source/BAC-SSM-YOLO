@@ -13,7 +13,7 @@ from ultralytics import YOLO
 
 
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Validate BAC-SSM-YOLO.")
+    parser = argparse.ArgumentParser(description="Validate BAC-SSM-YOLO with the locked SCB-Dataset2 protocol.")
     parser.add_argument("--weights", default=str(ROOT / "weights/BAC-SSM-YOLO_scb2_best.pt"))
     parser.add_argument("--data", default=str(ROOT / "configs/datasets/scb2.yaml"))
     parser.add_argument("--imgsz", type=int, default=640)
@@ -26,9 +26,19 @@ def parse_args() -> argparse.Namespace:
 def main() -> None:
     args = parse_args()
     model = YOLO(args.weights)
-    model.val(data=args.data, imgsz=args.imgsz, batch=args.batch, workers=args.workers, device=args.device)
+    model.val(
+        data=args.data,
+        imgsz=args.imgsz,
+        batch=args.batch,
+        workers=args.workers,
+        device=args.device,
+        rect=True,
+        conf=0.001,
+        iou=0.7,
+        augment=False,
+        half=False,
+    )
 
 
 if __name__ == "__main__":
     main()
-
