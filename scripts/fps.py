@@ -20,7 +20,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--weights", default=str(ROOT / "weights/BAC-SSM-YOLO_scb2_best.pt"))
     parser.add_argument("--imgsz", type=int, default=640)
     parser.add_argument("--batch", type=int, default=1)
-    parser.add_argument("--warmup", type=int, default=30)
+    parser.add_argument("--warmup", type=int, default=50)
     parser.add_argument("--iters", type=int, default=200)
     parser.add_argument("--device", default="cuda:0")
     parser.add_argument("--half", action="store_true", help="Use FP16 on CUDA devices.")
@@ -67,4 +67,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-
