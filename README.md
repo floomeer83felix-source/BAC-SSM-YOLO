@@ -1,6 +1,6 @@
 # BAC-SSM-YOLO
 
-Official release package for **BAC-SSM-YOLO**, a lightweight classroom behavior detector with Direction-Adaptive Local-Compensated SS2D, Behavior-Aware Convolution, and coordinate-aware feature recalibration.
+Official release package for **BAC-SSM-YOLO**, a lightweight classroom behaviour detector with Direction-Adaptive Local-Compensation SS2D, Behaviour-Aware Convolution, and coordinate-aware feature recalibration.
 
 This repository is a clean package extracted from the experiment workspace. It keeps only the code, configuration files, utility scripts, and the final trained weight required to reproduce or evaluate the proposed model.
 
@@ -124,6 +124,8 @@ The training script uses `AdamW` by default to avoid optimizer-specific issues w
 python scripts/val.py --data configs/datasets/scb2.yaml --weights weights/BAC-SSM-YOLO_scb2_best.pt
 ```
 
+The validation script defaults to the manuscript's locked SCB-Dataset2 accuracy protocol: 640x640 input, batch 16, FP32, `rect=True`, `conf=0.001`, `iou=0.7`, and `augment=False`.
+
 ## Predict
 
 ```bash
@@ -144,7 +146,7 @@ For FP16 testing:
 python scripts/fps.py --weights weights/BAC-SSM-YOLO_scb2_best.pt --imgsz 640 --batch 1 --device cuda:0 --half
 ```
 
-The script uses warmup iterations and reports both latency and FPS.
+By default, the script uses 50 warm-up iterations and 200 timed iterations, matching the manuscript's forward-only benchmark protocol, and reports both latency and FPS.
 
 ## Reported SCB-Dataset2 Result
 
