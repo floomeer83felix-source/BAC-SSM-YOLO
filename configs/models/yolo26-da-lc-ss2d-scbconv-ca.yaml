@@ -1,7 +1,7 @@
 # YOLO26 with DA-LC-SS2D + BAC(SCBConv) + CA
 #
 # This variant keeps the BAC/CA neck used by the full SS2D model and replaces
-# vanilla SS2D operators with Direction-Adaptive Local-Compensated SS2D.
+# vanilla SS2D operators with Direction-Adaptive Local-Compensation SS2D.
 
 nc: 80
 end2end: True
