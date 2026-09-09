@@ -1,0 +1,52 @@
+{
+  "checkpoint_sha256": "96b801e4bf0ea7daa4c6e1d69db54eabfb2f12ada90e57c93c411f6697a5fa93",
+  "checkpoint_train_model_argument": "ultralytics/cfg/models/26/yolo26-da-lc-ss2d-scbconv-ca.yaml",
+  "checkpoint_embedded_yaml_file": "ultralytics/cfg/models/26/yolo26-da-lc-ss2d-scbconv-ca.yaml",
+  "checkpoint_embedded_nc": 3,
+  "public_yaml_nc": 80,
+  "config_yaml_sha256": "f68b3c390d43992e24457009d4ec04f3d892080640c132ed0ee9808262fe4d4d",
+  "package_yaml_sha256": "f68b3c390d43992e24457009d4ec04f3d892080640c132ed0ee9808262fe4d4d",
+  "two_public_yamls_byte_identical": true,
+  "embedded_backbone_head_equals_public": true,
+  "state_dict_compatibility": {
+    "checkpoint_keys": 807,
+    "public_yaml_keys": 807,
+    "missing_from_public_yaml": [],
+    "missing_from_checkpoint": [],
+    "shape_mismatches": {},
+    "exact_key_and_shape_match": true
+  },
+  "release_commit": "bcdf87df9dfbe77e28ef310e0c7f04ca6e1cf5d8",
+  "release_commit_summary": "bcdf87df9dfbe77e28ef310e0c7f04ca6e1cf5d8\n2026-06-01T09:30:02+08:00\nRelease BAC-SSM-YOLO code and weights",
+  "release_presence": {
+    "weights/BAC-SSM-YOLO_scb2_best.pt": true,
+    "configs/models/yolo26-da-lc-ss2d-scbconv-ca.yaml": true,
+    "ultralytics/nn/modules/block.py": true,
+    "ultralytics/nn/modules/mamba_ss2d.py": true
+  },
+  "architecture_code_changes_since_release": [],
+  "checkpoint_contains_git_commit_metadata": true,
+  "checkpoint_git_metadata": {
+    "root": "None",
+    "branch": null,
+    "commit": null,
+    "origin": null
+  },
+  "checkpoint_keys": [
+    "best_fitness",
+    "date",
+    "docs",
+    "ema",
+    "epoch",
+    "git",
+    "license",
+    "model",
+    "optimizer",
+    "scaler",
+    "train_args",
+    "train_metrics",
+    "train_results",
+    "updates",
+    "version"
+  ]
+}
