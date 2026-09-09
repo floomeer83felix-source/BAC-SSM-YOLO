@@ -1,6 +1,6 @@
 # BAC-SSM-YOLO
 
-Official release package for **BAC-SSM-YOLO**, a lightweight classroom behavior detector with Direction-Adaptive Local-Compensated SS2D, Behavior-Aware Convolution, and coordinate-aware feature recalibration.
+Official release package for **BAC-SSM-YOLO**, a lightweight classroom behavior detector with Direction-Adaptive Local-Compensation SS2D, Behavior-Aware Convolution, and coordinate-aware feature recalibration.
 
 This repository is a clean package extracted from the experiment workspace. It keeps only the code, configuration files, utility scripts, and the final trained weight required to reproduce or evaluate the proposed model.
 
@@ -37,6 +37,12 @@ The released checkpoint is:
 
 ```text
 weights/BAC-SSM-YOLO_scb2_best.pt
+```
+
+Checkpoint SHA-256:
+
+```text
+96b801e4bf0ea7daa4c6e1d69db54eabfb2f12ada90e57c93c411f6697a5fa93
 ```
 
 The checkpoint was trained on SCB-Dataset2 with three classes: `hand-raising`, `reading`, and `writing`.
@@ -81,7 +87,7 @@ The released experiments follow the SCB-Dataset2 YOLO-format split:
 
 | Split | Images | Instances |
 |---|---:|---:|
-| Train | 3,418 | 14,515 |
+| Train | 3,418 | 14,506 |
 | Val | 848 | 3,992 |
 
 Expected directory layout:
@@ -124,6 +130,8 @@ The training script uses `AdamW` by default to avoid optimizer-specific issues w
 python scripts/val.py --data configs/datasets/scb2.yaml --weights weights/BAC-SSM-YOLO_scb2_best.pt
 ```
 
+The validation script defaults to the manuscript's fixed SCB-Dataset2 accuracy protocol: 640x640 input, batch 16, FP32, `rect=True`, `conf=0.001`, `iou=0.7`, and `augment=False`.
+
 ## Predict
 
 ```bash
@@ -144,15 +152,15 @@ For FP16 testing:
 python scripts/fps.py --weights weights/BAC-SSM-YOLO_scb2_best.pt --imgsz 640 --batch 1 --device cuda:0 --half
 ```
 
-The script uses warmup iterations and reports both latency and FPS.
+By default, the script uses 50 warm-up iterations and 200 timed iterations, matching the manuscript's forward-only benchmark protocol, and reports both latency and FPS.
 
-## Reported SCB-Dataset2 Result
+## Released-Checkpoint SCB-Dataset2 Result
 
 | Model | Params (M) | GFLOPs | FPS | P (%) | R (%) | mAP@0.5 (%) | mAP@0.5:0.95 (%) |
 |---|---:|---:|---:|---:|---:|---:|---:|
-| BAC-SSM-YOLO | 5.34 | 15.28 | 57.64 | 64.77 | 65.09 | 68.46 | 48.03 |
+| BAC-SSM-YOLO | 5.34 | 15.31 | 48.64 | 64.74 | 65.06 | 68.48 | 48.05 |
 
-All FPS values in the manuscript were measured under a unified Mamba-SSM environment.
+The P/R/mAP values are from the released checkpoint under the manuscript's fixed validation protocol. The table FPS is the manuscript's forward-only RTX 3090 FP32 batch-1 measurement (50 warm-up iterations and 200 CUDA-synchronized timed iterations, excluding image decoding, pre/post-processing, and I/O). The manuscript reports decoded-frame processing separately.
 
 ## Notes
 
