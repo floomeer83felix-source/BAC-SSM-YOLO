@@ -1,0 +1,43 @@
+{
+  "audit_scope": "A03 historical provenance and complexity normalization",
+  "release_commit": "bcdf87df9dfbe77e28ef310e0c7f04ca6e1cf5d8",
+  "prune_commit": "28257ee89ba40e992280398a1f20d491b5075ca7",
+  "current_audit_branch": "integrate/jei-classroom-baselines",
+  "profiling_equivalence": {
+    "historical_torch_utils_blob": "557cc464864b08b3d4be3ae429e54c3d3e8aa9aa",
+    "current_torch_utils_blob": "557cc464864b08b3d4be3ae429e54c3d3e8aa9aa",
+    "same_profiler_blob": true,
+    "architecture_code_change_since_release": false,
+    "basis": "A02 architecture audit plus direct Git blob comparison for ultralytics/utils/torch_utils.py",
+    "execution_note": "No new training was performed. Complexity values are the already executed uniform 640-pixel get_flops profiles from A03, reclassified after confirming that the relevant historical YAML structures are public and that the profiler implementation is identical between release and current audit. The original manuscript profiling execution record is unavailable."
+  },
+  "profile_protocol": {
+    "nc": 3,
+    "scale": "n",
+    "imgsz": 640,
+    "profiler": "ultralytics.utils.torch_utils.get_flops",
+    "training": false
+  },
+  "rows": [
+    {"row":"A0","label":"YOLO26n","provenance":"PUBLIC_HISTORICAL","params_paper_M":2.51,"params_profiled_M":2.504970,"gflops_paper":5.78,"gflops_profiled":5.776077},
+    {"row":"A1","label":"BAC","provenance":"PUBLIC_HISTORICAL","params_paper_M":3.14,"params_profiled_M":3.139450,"gflops_paper":6.96,"gflops_profiled":6.963917},
+    {"row":"A2","label":"CAPlus composite P3 refinement","provenance":"PUBLIC_HISTORICAL","params_paper_M":2.53,"params_profiled_M":2.526209,"gflops_paper":6.04,"gflops_profiled":6.046182},
+    {"row":"A3","label":"BAC + CAPlus composite P3 refinement","provenance":"PUBLIC_HISTORICAL","params_paper_M":3.16,"params_profiled_M":3.160689,"gflops_paper":7.23,"gflops_profiled":7.234022},
+    {"row":"A4","label":"standard SS2D","provenance":"PUBLIC_HISTORICAL","params_paper_M":4.79,"params_profiled_M":4.785818,"gflops_paper":14.24,"gflops_profiled":14.237529},
+    {"row":"A5","label":"DA-LC-SS2D","provenance":"PUBLIC_HISTORICAL","params_paper_M":4.84,"params_profiled_M":4.836800,"gflops_paper":14.35,"gflops_profiled":14.373644},
+    {"row":"A6","label":"DA-LC + BAC","provenance":"PUBLIC_HISTORICAL","params_paper_M":5.42,"params_profiled_M":5.352000,"gflops_paper":15.76,"gflops_profiled":15.438706},
+    {"row":"A7","label":"DA-LC + CAPlus composite P3 refinement","provenance":"PUBLIC_HISTORICAL","params_paper_M":4.93,"params_profiled_M":4.858039,"gflops_paper":14.96,"gflops_profiled":14.643750},
+    {"row":"A8","label":"BAC-SSM-YOLO","provenance":"PUBLIC_CURRENT","params_paper_M":5.34,"params_profiled_M":5.342903,"gflops_paper":15.28,"gflops_profiled":15.313958},
+    {"row":"Table5-standard","label":"standard SS2D + BAC + CAPlus","provenance":"PUBLIC_HISTORICAL","params_paper_M":5.30,"params_profiled_M":5.291921,"gflops_paper":15.30,"gflops_profiled":15.177842},
+    {"row":"Table5-DALC","label":"DA-LC-SS2D + BAC + CAPlus","provenance":"PUBLIC_CURRENT","params_paper_M":5.34,"params_profiled_M":5.342903,"gflops_paper":15.28,"gflops_profiled":15.313958}
+  ],
+  "recommended_manuscript_complexity_policy": "Use the uniform reproducible profiled values, rounded consistently, for retained Table 4 and Table 5 rows. Do not preserve incompatible legacy complexity values solely to match the existing manuscript.",
+  "unresolved": {
+    "table6_da_only": "NOT_TRACEABLE",
+    "table6_lc_only": "NOT_TRACEABLE",
+    "table8_ratio_0_03125": "NOT_TRACEABLE",
+    "table8_ratio_0_125": "NOT_TRACEABLE",
+    "table8_ratio_0_0625": "CODE_CONFIRMED_DEFAULT"
+  },
+  "retraining_decision": "NO RETRAINING REQUIRED"
+}
